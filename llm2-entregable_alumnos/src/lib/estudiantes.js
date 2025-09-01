@@ -30,6 +30,17 @@ class Estudiantes {
   // TODO: Implementar método para agregar estudiante
   agregarEstudiante(nombre, apellido, curso) {
     // Tu código aquí
+    if(!nombre||!apellido||!curso){
+      throw new error("No puedes cargar al alumno")
+    }
+    const EstudianteNuevo={
+      nombre,
+      apellido,
+      curso
+    }
+    this.estudiantes.push(EstudianteNuevo)
+    this.guardarEstudiantes()
+    return `Estudiante guardado`
   }
 
   // TODO: Implementar método para buscar estudiante por nombre
@@ -49,6 +60,9 @@ class Estudiantes {
   // TODO: Implementar método para listar estudiantes
   listarEstudiantes() {
     // Tu código aquí
+    return this.estudiantes.length > 0 
+    ? this.estudiantes 
+    : "No hay estudiantes cargados.";
   }
 }
 
